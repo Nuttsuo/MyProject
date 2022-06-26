@@ -15,7 +15,9 @@ int main()
     //create a vector that will hold the individual words
     vector<string> vectorOfString;
 
-    istringstream ss(input);
+    //whitespace
+    stringstream ss; 
+    ss << input;
 
     //go word by word 
     int charCount = ss.str().length();
@@ -27,9 +29,9 @@ int main()
 
     while (ss >> temp)
     {
+        //cout << temp << endl;
         vectorOfString.emplace_back(temp);
     }
-
 
     sort(vectorOfString.begin(), vectorOfString.end(), [](const auto& lhs, const auto& rhs) {
         const auto result = mismatch(lhs.cbegin(), lhs.cend(), rhs.cbegin(), rhs.cend(), [](const auto& lhs, const auto& rhs)
